@@ -104,6 +104,7 @@ class Admin extends Controller
         $this->schools = new Schools();
         $this->view->activeDistricts = $this->schools->getActiveDistricts();
         $this->view->schoolDistricts = $this->schools->getSchoolDistricts();
+        $this->view->schools = $this->schools->getSchools('all');
         $this->view->role = Session::get('role');
         $this->view->title="Midlands Technical College | Admin | Edit Schools";
         $this->view->render('admin/header');
@@ -214,6 +215,29 @@ class Admin extends Controller
         header('Location: '.URL.'admin/editJobs/');
     }
 
+
+    // Edit Schools
+
+    function deactivateDistrict($district){
+        $this->model->deactivateDistrict($district);
+        header('Location: '.URL.'admin/editSchools/');
+    }
+
+    function activateDistrict(){
+        $this->model->activateDistrict();
+        header('Location: '.URL.'admin/editSchools/');
+    }
+
+    function updateSchool(){
+        $this->model->updateSchool($district);
+        header('Location: '.URL.'admin/editSchools/');
+    }
+
+    function deleteSchool($id){
+        $this->model->deleteSchool($id);
+        header('Location: '.URL.'admin/editSchools/');
+    }
+
     // CRUD Admin
     function deleteAdmin($userId){
         $this->model->deleteAdmin($userId);
@@ -269,6 +293,10 @@ class Admin extends Controller
 
     function xhrGetJob(){
         $this->model->getJob();
+    }
+
+    function xhrGetSchool(){
+        $this->model->getSchool();
     }
 
 }

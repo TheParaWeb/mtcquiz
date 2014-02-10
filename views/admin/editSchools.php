@@ -29,6 +29,9 @@
                 <label for="selectDistrict">Select District</label>
                 <select name="selectDistrict">
                     <option value="null">Select One...</option>
+                    <?php foreach($this->schoolDistricts AS $district){?>
+                    <option value="<?php echo $district['district'];?>"><?php echo $district['district'];?></option>
+                    <?php }?>
                 </select>
 
                 <input class="button large green expand" type="submit" value="Activate"/>
@@ -49,42 +52,48 @@
 
     <fieldset id="editJobs">
         <legend>Edit Current Schools</legend>
-        <form name="editSchool" action="<?php echo URL;?>admin/updateSchool/" method="post"/>
+        <form id="updateSchoolForm" name="editSchool" action="<?php echo URL;?>admin/updateSchool/" method="post"/>
         <div class="row">
             <div class="small-8 large-8 columns">
                 <legend for="school">Select School</legend>
-                <select name="school">
+                <select id="edit-school-select" name="school">
                     <option value="null">Select One...</option>
+                    <?php
+                    foreach ($this->schoolDistricts AS $category) {
+                        echo "<optgroup label='" . $category['district'] . "'>";
+                        foreach ($this->schools AS $school) {
+                            if ($school['district'] == $category['district']) {
+                                echo "<option value='" . $school['name'] . "'>" . $school['name'] . "</option>";
+                            }
+                        }
+                        echo "</optgroup>";
+                    }
+                    ?>
                 </select>
             </div>
 
             <div class="small-4 large-4 columns" style="margin-top:25px;">
                 <label style="float:left; margin-right:10px;" for="active">Active?</label>
-                <input style="float:left;" type="checkbox" value="1"/>
+                <input id="active" name="active" style="float:left;" type="checkbox" value="1"/>
             </div>
         </div>
 
         <div class="row">
             <div class="small-12 large-6 columns">
-                <label for="schoolName">School Name</label>
-                <input type="text" name="schoolName"/>
+                <label for="name">School Name</label>
+                <input id="schoolName" type="text" name="name"/>
             </div>
-            <div class="small-12 large-6 columns">
-                <label for="district">Disctict</label>
-                <select name="district">
-                    <option value="null">Select One...</option>
-                </select>
-            </div>
+
         </div>
 
         <div class="row">
             <div class="small-12 large-6 columns">
-                <label for="contactName">Contact Name</label>
-                <input type="text" name="contactName"/>
+                <label for="contact_name">Contact Name</label>
+                <input id="contactName" type="text" name="contact_name"/>
             </div>
             <div class="small-12 large-6 columns">
-                <label for="contactEmail">Contact Email</label>
-                <input type="email" name="contactEmail"/>
+                <label for="contact_email">Contact Email</label>
+                <input id="contactEmail" type="email" name="contact_email"/>
             </div>
         </div>
 
@@ -95,6 +104,7 @@
             </div>
             <div class="small-12 large-6 columns">
                 <input class="button large green expand" type="submit" value="Save"/>
+                <a id="deleteSchoolButton" class="button large red expand" href="<?php echo URL;?>admin/deleteSchool/">DELETE</a>
             </div>
         </div>
     </fieldset>

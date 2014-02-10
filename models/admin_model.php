@@ -163,6 +163,45 @@ class Admin_Model extends Model
     }
 
 
+    // Edit Schools
+
+    public function deactivateDistrict($district){
+        $sql = "UPDATE schools SET active = 0 WHERE district = :district";
+        $q = $this->db->prepare($sql);
+        $q->execute(array('district'=>base64_decode($district)));
+    }
+
+    public function activateDistrict(){
+        $sql = "UPDATE schools SET active = 1 WHERE district = :district";
+        $q = $this->db->prepare($sql);
+        $q->execute(array('district'=>$_POST['selectDistrict']));
+    }
+
+    public function updateSchool(){
+        if(!isset($_POST['active'])){$_POST['active']=0;}
+        else{$_POST['active']=1;}
+        $sql = "UPDATE schools SET name = :name, contact_name = :contact_name, contact_email = :contact_email, active = :active
+                WHERE name = :school";
+        $q = $this->db->prepare($sql);
+        $q->execute(array(
+            'name'=>$_POST['name'],
+            'contact_name'=>$_POST['contact_name'],
+            'contact_email'=>$_POST['contact_email'],
+            'active'=>$_POST['active'],
+            'school'=>$_POST['school']
+        ));
+    }
+
+    public function deleteSchool($id){
+        $sql = "DELETE FROM schools WHERE id =  :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array(':id'=>$id));
+    }
+
+
+
+
+
     // Statistics
     public function getQuizStats(){
         /*
@@ -239,6 +278,11 @@ class Admin_Model extends Model
         $result = $this->db->select("SELECT * FROM jobs WHERE id = :id",array(':id'=>$_POST['id']));
         $result=$result[0];
         echo json_encode($result);
+    }
+
+    public function getSchool(){
+        $this->school = new Schools();
+        echo json_encode($this->school->getSchoolByName($_POST['name']));
     }
 
 }

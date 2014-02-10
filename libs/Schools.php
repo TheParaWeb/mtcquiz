@@ -18,9 +18,14 @@ class Schools
         return $this->db->select("SELECT * FROM schools WHERE active = '1' GROUP BY district ORDER BY district", array());
     }
 
-    public function getSchools()
+    public function getSchools($active = 'active')
     {
-        return $this->db->select("SELECT * FROM schools WHERE active = '1' ORDER BY district, name", array());
+        if($active == 'active'){
+            return $this->db->select("SELECT * FROM schools WHERE active = '1' ORDER BY district, name", array());
+        }else{
+            return $this->db->select("SELECT * FROM schools ORDER BY district, name", array());
+        }
+
     }
 
     public function getSchoolDistricts(){
