@@ -111,6 +111,15 @@ class Admin extends Controller
         $this->view->render('footer');
     }
 
+    function editCategory($category){
+        Auth::handleLogin(true);
+        $this->view->category = $category;
+        $this->view->title="Midlands Technical College | Admin | Edit Category";
+        $this->view->render('admin/header');
+        $this->view->render('admin/editCategory');
+        $this->view->render('footer');
+    }
+
     function students()
     {
         Auth::handleLogin(true);
@@ -161,7 +170,7 @@ class Admin extends Controller
     {
         $message = $this->model->createAdmin();
         Session::set('msg', $message);
-        header('location: ' . URL . 'admin/addAdmin');
+        header('location: ' . URL . 'admin/administrators');
     }
 
     function updateAdministrator($userId){
@@ -169,6 +178,23 @@ class Admin extends Controller
         header('Location: '.URL.'admin/administrators/');
     }
 
+    // CRUD Jobs -> Categories
+    function updateCategory($category){
+        $this->model->updateCategory($category);
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    function deleteCategory($category){
+        $this->model->deleteCategory($category);
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    function createCategory(){
+        $this->model->createCategory();
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    // CRUD Admin
     function deleteAdmin($userId){
         $this->model->deleteAdmin($userId);
         header('Location: '.URL.'admin/administrators/');

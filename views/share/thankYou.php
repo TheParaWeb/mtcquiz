@@ -15,7 +15,7 @@
         </div>
 
         <div class="row buttons">
-            <a href="<?php echo URL; ?>results/jobs/<?php echo $this->salary;?>" class="button large expand red">See Relevant Careers</a>
+            <a href="<?php echo URL; ?>results/jobs/1" class="button large expand red">Careers</a>
         </div>
     </div>
 </div>

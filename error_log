@@ -569,3 +569,17 @@ Stack trace:
 [27-Jan-2014 20:38:04 America/Los_Angeles] PHP Warning:  require(views/admin/students.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/tpmcho5/public_html/dev/mtcquiz/libs/View.php on line 19
 [27-Jan-2014 20:38:04 America/Los_Angeles] PHP Warning:  require(views/admin/students.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/tpmcho5/public_html/dev/mtcquiz/libs/View.php on line 19
 [27-Jan-2014 20:38:04 America/Los_Angeles] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required 'views/admin/students.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/tpmcho5/php') in /home/tpmcho5/public_html/dev/mtcquiz/libs/View.php on line 19
+[31-Jan-2014 07:40:22 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:40:40 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:40:51 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:41:10 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:41:22 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:41:28 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:41:40 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:41:53 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:00 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:10 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:17 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:24 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:34 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18
+[31-Jan-2014 07:42:39 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home/tpmcho5/public_html/dev/mtcquiz/views/lifestyle/index.php on line 18

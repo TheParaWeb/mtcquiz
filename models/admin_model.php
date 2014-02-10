@@ -112,6 +112,31 @@ class Admin_Model extends Model
         }
     }
 
+    public function createCategory(){
+        $data = array(
+            'jobTitle'=>$_POST['jobTitle'],
+            'description'=>$_POST['description'],
+            'salary'=>$_POST['salary'],
+            'category'=>$_POST['category']
+        );
+        $this->db->insert('jobs',$data);
+    }
+
+    public function updateCategory($category){
+        $category = base64_decode($category);
+        $sql = "UPDATE jobs SET category= :category WHERE category = :oldCategory";
+        $q = $this->db->prepare($sql);
+	    $q->execute(array(':category'=>$_POST['title'],':oldCategory'=>$category));
+    }
+
+    public function deleteCategory($category){
+        $category = base64_decode($category);
+        $sql = "DELETE FROM jobs WHERE category =  :category";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array(':category'=>$category));
+    }
+
+
     public function getQuizStats(){
         /*
          * $data = array(

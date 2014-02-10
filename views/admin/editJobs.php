@@ -16,7 +16,7 @@
                 </td>
 
                 <?php if ($this->role == 'owner'): ?>
-                    <td><a class="red-text unauthorized"
+                    <td><a class="red-text delete"
                            href="<?php echo URL; ?>admin/deleteCategory/<?php echo $url; ?>" title="Edit">Delete</a>
                     </td>
                 <?php else: ?>
@@ -34,21 +34,21 @@
         <fieldset class="new-category">
             <legend>Create New Category</legend>
 
-            <form action="" method="post">
+            <form action="<?php echo URL; ?>admin/createCategory/" method="post">
 
                 <label for="category">Category Title</label>
                 <input type="text" name="category" required>
 
                 <span class="form-info red-text">*When creating a new category, a new job must be created for that category.</span>
 
-                <label for="job">Job Title</label>
-                <input type="text" name="job" required/>
+                <label for="jobTitle">Job Title</label>
+                <input type="text" name="jobTitle" required/>
 
                 <label for="salary">Monthly Salary</label>
                 <input type="text" name="salary" placeholder="50000" required/>
 
                 <label for="description">Description</label>
-                <textarea name="description"></textarea>
+                <textarea name="description" required></textarea>
 
                 <input class="button large expand green" type="submit" value="Create Category"/>
 
@@ -86,6 +86,15 @@
                             <?php endif; ?>
                         <?php } ?>
                         <?php } ?>
+                </select>
+
+                <label for="category">Select Category</label>
+                <select name="category">
+                    <option value="null">Select One...</option>
+                    <?php foreach ($categories AS $category) { ?>
+                        <option
+                            value="<?php echo $category['category']; ?>"><?php echo $category['category']; ?></option>
+                    <?php } ?>
                 </select>
 
                 <label for="job">Job Title</label>

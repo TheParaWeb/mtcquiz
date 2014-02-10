@@ -26,15 +26,7 @@
             <a href="<?php echo URL;?>lifestyle" class="button large expand blue">Lifestyle Quiz</a>
             <?php endif;?>
 
-            <a href="<?php echo URL; ?>quiz/career" class="button large expand disabled">Career Quiz</a><!--red -->
-
-            <!--
-            <a href="<?php echo URL;?>quiz/career" class="button large expand gray taken">
-                <p>Career Quiz Complete</p>
-                <p class="bold">Take Again</p>
-            </a>
-            -->
-            <a href="<?php echo URL; ?>results" class="button large expand disabled">Career Paths</a><!--orange -->
+            <a href="<?php echo URL; ?>share" class="button large expand red">Careers</a>
 
             <a href="<?php echo URL; ?>share" class="button large expand green">Share</a>
         </div>

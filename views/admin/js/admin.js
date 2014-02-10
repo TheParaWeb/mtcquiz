@@ -23,7 +23,7 @@ $(function () {
                         type: 'line'
                     },
                     title: {
-                        text: 'Para Analytics'
+                        text: 'Para Analytics',
                     },
                     xAxis: {
                         categories: months

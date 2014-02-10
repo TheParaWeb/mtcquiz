@@ -28,9 +28,6 @@ class Login_Model extends Model
             Session::set('loggedIn', true);
             Session::set('email', $postData['email']);
             Session::set('visitorId',$result['visitorId']);
-
-            $questionsTotal = $this->lifestyle->getQuestionsTotal();
-            $questionsAnswered =
             header('location: ' . URL . 'dashboard/index');
         } else {
             Session::set('msg', array('error' => 'Hmm... this email is not in our system.'));

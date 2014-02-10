@@ -43,16 +43,12 @@ class Database extends PDO
     public function insert($table, $data)
     {
         ksort($data);
-
         $fieldNames = implode('`, `', array_keys($data));
         $fieldValues = ':' . implode(', :', array_keys($data));
-
         $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
-
         foreach ($data as $key => $value) {
             $sth->bindValue(":$key", $value);
         }
-
         if ($sth->execute()) {
             return true;
         } else {
@@ -75,7 +71,7 @@ class Database extends PDO
             $fieldDetails .= "`$key`=:$key,";
         }
         $fieldDetails = rtrim($fieldDetails, ',');
-        $sth = $this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
+        $sth = $this->prepare("UPDATE ".$table." SET ".$fieldDetails." WHERE ".$where);
 
         foreach ($data as $key => $value) {
             $sth->bindValue(":$key", $value);
