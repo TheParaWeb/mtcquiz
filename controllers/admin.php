@@ -178,6 +178,9 @@ class Admin extends Controller
         header('Location: '.URL.'admin/administrators/');
     }
 
+
+    // Edit Jobs
+
     // CRUD Jobs -> Categories
     function updateCategory($category){
         $this->model->updateCategory($category);
@@ -191,6 +194,23 @@ class Admin extends Controller
 
     function createCategory(){
         $this->model->createCategory();
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    // CRUD Jobs -> Jobs
+
+    function updateJob($id){
+        $this->model->updateJob($id);
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    function deleteJob($id){
+        $this->model->deleteJob($id);
+        header('Location: '.URL.'admin/editJobs/');
+    }
+
+    function createJob(){
+        $this->model->createJob();
         header('Location: '.URL.'admin/editJobs/');
     }
 

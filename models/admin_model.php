@@ -136,7 +136,34 @@ class Admin_Model extends Model
         $stmt->execute(array(':category'=>$category));
     }
 
+    public function updateJob($id){
+        $sql = "UPDATE jobs SET jobTitle = :jobTitle, description = :description, salary = :salary WHERE id = :id";
+        $q = $this->db->prepare($sql);
+        $q->execute(array(
+            'jobTitle'=>$_POST['jobTitle'],
+            ':description'=>$_POST['description'],
+            ':salary'=>$_POST['salary'],
+            ':id'=>$id));
+    }
 
+    public function deleteJob($id){
+        $sql = "DELETE FROM jobs WHERE id =  :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array(':id'=>$id));
+    }
+
+    public function createJob(){
+        $data = array(
+            'jobTitle'=>$_POST['jobTitle'],
+            'description'=>$_POST['description'],
+            'salary'=>$_POST['salary'],
+            'category'=>$_POST['category']
+        );
+        $this->db->insert('jobs',$data);
+    }
+
+
+    // Statistics
     public function getQuizStats(){
         /*
          * $data = array(

@@ -37,9 +37,28 @@ $(function () {
                 $('#edit-salary').val(job.salary);
                 $('#edit-description').html(job.description);
 
+                var action = $("#updateJobForm").attr('action')+job.id+"/";
+                var href = $('#deleteJob').attr('href')+job.id+"/";
+                $("#updateJobForm").attr('action',action);
+                $('#deleteJob').attr('href',href);
             }, 'json');
-
-
     });
 
+    $('#updateJob').click(function(){
+        alert('Job Updated!');
+    });
+
+    $('#createJob').click(function(){
+        alert('Job Created!');
+    });
+
+    $('#deleteJob').click(function(){
+        var retVal = confirm("Are you sure you want to delete this job?");
+        if( retVal == true ){
+            alert("Job Deleted!");
+            return true;
+        }else{
+            return false;
+        }
+    });
 });

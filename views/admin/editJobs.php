@@ -73,7 +73,7 @@
     <div class="small-12 large-6 columns">
         <fieldset class="edit-jobs">
             <legend>Edit Jobs</legend>
-            <form action="<?php echo URL; ?>admin/updateJob/" method="post">
+            <form id="updateJobForm" action="<?php echo URL; ?>admin/updateJob/" method="post">
                 <label for="selectJob">Select Job</label>
 
                 <select id="edit-job-select" name="selectJob">
@@ -88,17 +88,8 @@
                         <?php } ?>
                 </select>
 
-                <label for="category">Select Category</label>
-                <select name="category">
-                    <option value="null">Select One...</option>
-                    <?php foreach ($categories AS $category) { ?>
-                        <option
-                            value="<?php echo $category['category']; ?>"><?php echo $category['category']; ?></option>
-                    <?php } ?>
-                </select>
-
-                <label for="job">Job Title</label>
-                <input id="edit-jobTitle" type="text" name="job" required/>
+                <label for="jobTitle">Job Title</label>
+                <input id="edit-jobTitle" type="text" name="jobTitle" required/>
 
                 <label for="salary">Monthly Salary</label>
                 <input id="edit-salary" type="text" name="salary" placeholder="50000" required/>
@@ -106,9 +97,9 @@
                 <label for="description">Description</label>
                 <textarea id="edit-description" name="description"></textarea>
 
-                <input class="button large expand green" type="submit" value="Update Job"/>
+                <input id="updateJob" class="button large expand green" type="submit" value="Update Job"/>
 
-                <a class="button large expand red" href="#">Delete Job</a>
+                <a id="deleteJob" class="button large expand red" href="<?php echo URL;?>admin/deleteJob/">Delete Job</a>
 
             </form>
         </fieldset>
@@ -129,8 +120,8 @@
                     <?php } ?>
                 </select>
 
-                <label for="job">Job Title</label>
-                <input type="text" name="job" required/>
+                <label for="jobTitle">Job Title</label>
+                <input type="text" name="jobTitle" required/>
 
                 <label for="salary">Monthly Salary</label>
                 <input type="text" name="salary" placeholder="50000" required/>
@@ -138,7 +129,7 @@
                 <label for="description">Description</label>
                 <textarea name="description"></textarea>
 
-                <input class="button large expand blue" type="submit" value="Create Job"/>
+                <input id="createJob" class="button large expand blue" type="submit" value="Create Job"/>
             </form>
         </fieldset>
     </div>
