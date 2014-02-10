@@ -199,7 +199,34 @@ class Admin_Model extends Model
     }
 
 
+    // Students
+    public function getStudent(){
+        $result = $this->db->select("SELECT * FROM students WHERE id = :id",array(':id'=>$_POST['id']));
+        $result=$result[0];
+        echo json_encode($result);
+    }
 
+
+    // CRUD Students
+
+    public function updateStudent(){
+        $sql = "UPDATE students SET name = :name, email = :email, age = :age, gender = :gender
+                WHERE id = :id";
+        $q = $this->db->prepare($sql);
+        $q->execute(array(
+            'name'=>$_POST['name'],
+            'contact_name'=>$_POST['contact_name'],
+            'contact_email'=>$_POST['contact_email'],
+            'active'=>$_POST['active'],
+            'school'=>$_POST['school']
+        ));
+    }
+    public function createStudent(){}
+    public function deleteStudent($id){
+        $sql = "DELETE FROM students WHERE id =  :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array(':id'=>$id));
+    }
 
 
     // Statistics

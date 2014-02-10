@@ -33,7 +33,6 @@ $(function () {
         $.post('../xhrGetSchool',
             {name: name},
             function (school) {
-                console.log(school);
 
                 if(school.active ==1){
                     $('#active').prop('checked', true);

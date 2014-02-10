@@ -19,4 +19,14 @@ class Student
         return $this->db->select("SELECT * FROM students WHERE visitorId = :visitorId LIMIT 1", array(':visitorId'=>$visitorId));
     }
 
+    public function getStudent()
+    {
+        return $this->db->select("SELECT * FROM students WHERE id = :id LIMIT 1", array(':id'=>$_POST['id']));
+    }
+
+    public function getStudents(){
+
+        return $this->db->select("SELECT * FROM students ORDER BY school, name", array());
+    }
+
 }

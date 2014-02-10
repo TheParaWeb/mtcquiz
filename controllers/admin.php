@@ -124,6 +124,15 @@ class Admin extends Controller
     function students()
     {
         Auth::handleLogin(true);
+        $this->view->js = array(
+            'admin/js/editStudents.js'
+        );
+
+        $this->student = new Student();
+        $this->view->students = $this->student->getStudents();
+        $this->schools = new Schools();
+        $this->view->activeDistricts = $this->schools->getActiveDistricts();
+        $this->view->schools = $this->schools->getSchools('all');
         $this->view->msg = Session::get('msg');
         Session::kill('msg');
         $this->view->title = 'Midlands Technical College LifeStyle Quiz | Admin | Edit Students';
@@ -244,10 +253,23 @@ class Admin extends Controller
         header('Location: '.URL.'admin/administrators/');
     }
 
+
+    // CRUD Students
+
     function createStudent()
     {
         $this->model->createStudent();
-        header('location: ' . URL . 'admin/addStudent');
+        header('location: ' . URL . 'admin/students');
+    }
+
+    function updateStudent(){
+        $this->model->updateStudent();
+        header('location: ' . URL . 'admin/students');
+    }
+
+    function deleteStudent($id){
+        $this->model->deleteStudent($id);
+        header('Location: '.URL.'admin/students/');
     }
 
     // TODO: Remove Logic Code from controller.
@@ -297,6 +319,10 @@ class Admin extends Controller
 
     function xhrGetSchool(){
         $this->model->getSchool();
+    }
+
+    function xhrGetStudent(){
+        $this->model->getStudent();
     }
 
 }
