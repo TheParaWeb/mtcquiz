@@ -104,6 +104,7 @@ class Dashboard_Model extends Model
         }
 
         return ceil($salary);
+
     }
 
     public function getAnswers($questionId){

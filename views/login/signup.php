@@ -39,6 +39,10 @@
                         echo "</optgroup>";
                     }
                     ?>
+                    <optgroup label='Other'>
+                        <option value="Homeschool">I'm homeschooled...</option>
+                        <option value="Other">My school is not listed here...</option>
+                    </optgroup>
                 </select>
             </div>
             <input type="submit" name="submit" value="Save" class="button large expand green">

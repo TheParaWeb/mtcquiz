@@ -4,7 +4,7 @@
         <div class="small-offset-1 small-11 large-offset-3 large-6 columns">
             <h2 class="blue-text">Lifestyle Quiz</h2>
 
-            <h2>Question <?php echo $this->currentIndex + 1; ?></h2>
+            <h2>Question <?php echo $this->currentIndex + 1; ?>/15</h2>
         </div>
     </div>
 

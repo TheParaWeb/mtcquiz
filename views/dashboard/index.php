@@ -26,7 +26,7 @@
             <a href="<?php echo URL;?>lifestyle" class="button large expand blue">Lifestyle Quiz</a>
             <?php endif;?>
 
-            <a href="<?php echo URL; ?>share" class="button large expand red">Careers</a>
+            <a href="<?php echo URL; ?>results/jobs/1" class="button large expand red">Careers</a>
 
             <a href="<?php echo URL; ?>share" class="button large expand green">Share</a>
         </div>
@@ -37,13 +37,13 @@
 
         <p>Salary needed:</p>
 
-        <h3><span class="green-text">$<?php echo $this->salary;?></span> yr.</h3>
+        <h3><span class="green-text">$<?php echo $this->salary->annual;?></span>/yr.</h3>
+        <h3><span class="orange-text">$<?php echo $this->salary->hourly;?></span>/hr.</h3>
 
         <p>Professions:</p>
-
         <?php
             foreach ($this->jobs AS $job){ ?>
-              <a href="<?php echo URL."results/job/".$job['id'];?>/<?php echo $this->salary;?>" title="<?php echo $job['jobTitle'];?>">
+              <a href="<?php echo URL."results/job/".$job['id'];?>/<?php echo $this->salary->annual;?>" title="<?php echo $job['jobTitle'];?>">
                   <p class="bold"><?php echo $job['jobTitle'];?></p>
               </a>
             <?php }

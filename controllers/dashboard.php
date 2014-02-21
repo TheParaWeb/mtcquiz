@@ -28,7 +28,8 @@ class Dashboard extends Controller
 
         $this->view->title = 'Midlands Technical College LifeStyle Quiz | Home';
         $this->view->student = $student[0];
-        $this->view->salary = $salary;
+        $this->view->salary->annual = $salary;
+        $this->view->salary->hourly = ceil($salary/52/40);
         $this->view->jobs = $this->model->getRecommendedJobs($salary);
 
         $this->view->render('header');

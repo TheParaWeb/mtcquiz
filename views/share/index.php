@@ -30,6 +30,9 @@
                     <input type="checkbox" name="counselor" value="counselor" id="counselor">
                     <label for="counselor">Share with your guidance counselor</label>
 
+                    <input type="checkbox" name="admissions" value="admissions" id="admissions">
+                    <label for="admissions">Have an MTC Admissions Officer Contact Me!</label>
+
                     <input type="submit" value="Share" class="button large green">
                 </fieldset>
             </form>
